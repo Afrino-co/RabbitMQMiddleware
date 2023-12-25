@@ -33,16 +33,40 @@ Add the following in appsettings.json
   }
 ```
 # How To Use
-Inject IProducerService
+For send message inject IProducerService
 ```
   private readonly IProducerService<string> _producerService;
-  public SetDelayedCommandHandler(IProducerService<string> producerService)
+  public ClassName(IProducerService<string> producerService)
   {
     _producerService = producerService;
   }
   public void SendMessage(string message)
   {
     _producerService.Send(message: message, exchangeName: "Exchange Name", exchangeType: "direct", queueName: "Queue Name", routingKey: "Routing Key");
+  }
+```
+
+For receive message inject IConsumerService
+```
+  private readonly IConsumerService _consumerService;
+  public ClassName(IConsumerService consumerService)
+  {
+    _consumerService = consumerService;
+  }
+  public async Task Reciver()
+  {
+    var model = _consumerService.GetRabbitModel(exchangeName: "Exchange Name", exchangeType: "direct", queueName: "Queue Name", routingKey: "Routing Key");
+    var consumer = new AsyncEventingBasicConsumer(model);
+
+    consumer.Received += async (ch, ea) =>
+    {
+      //Implement your business
+
+      model.BasicAck(ea.DeliveryTag, false);
+
+      await Task.CompletedTask;
+    };
+    model.BasicConsume(queue: "Queue Name", false, consumer);
   }
 ```
 
