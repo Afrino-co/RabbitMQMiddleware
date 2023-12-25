@@ -42,7 +42,8 @@ For send message inject IProducerService
   }
   public void SendMessage(string message)
   {
-    _producerService.Send(message: message, exchangeName: "Exchange Name", exchangeType: "direct", queueName: "Queue Name", routingKey: "Routing Key");
+    _producerService.Send(message: message, exchangeName: "Exchange Name",
+    exchangeType: "direct", queueName: "Queue Name", routingKey: "Routing Key");
   }
 ```
 
@@ -55,7 +56,8 @@ For receive message inject IConsumerService
   }
   public async Task Reciver()
   {
-    var model = _consumerService.GetRabbitModel(exchangeName: "Exchange Name", exchangeType: "direct", queueName: "Queue Name", routingKey: "Routing Key");
+    var model = _consumerService.GetRabbitModel(exchangeName: "Exchange Name",
+    exchangeType: "direct", queueName: "Queue Name", routingKey: "Routing Key");
     var consumer = new AsyncEventingBasicConsumer(model);
 
     consumer.Received += async (ch, ea) =>
