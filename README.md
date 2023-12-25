@@ -62,6 +62,8 @@ For receive message inject IConsumerService
 
     consumer.Received += async (ch, ea) =>
     {
+      var body = ea.Body.ToArray();
+      var item = JsonSerializer.Deserialize<string>(System.Text.Encoding.UTF8.GetString(body));
       //Implement your business
 
       model.BasicAck(ea.DeliveryTag, false);
