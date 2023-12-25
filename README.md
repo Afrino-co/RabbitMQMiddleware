@@ -42,7 +42,7 @@ Inject IProducerService
   }
   public void SendMessage(string message)
   {
-              _producerService.Send(message: message, exchangeName: "Exchange Name", exchangeType: "direct", queueName: "Queue Name", routingKey: "Routing Key");
+    _producerService.Send(message: message, exchangeName: "Exchange Name", exchangeType: "direct", queueName: "Queue Name", routingKey: "Routing Key");
   }
 ```
 
