@@ -1,5 +1,5 @@
 # RabbitMQMiddleware
-RabbitMQ middleware for .net suitable for clean architecture
+RabbitMQ middleware for .net, suitable for clean architecture
 
 # Install the package
 Find the package through NuGet Package Manager or install it with following command.
