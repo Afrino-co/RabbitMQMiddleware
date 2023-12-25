@@ -13,7 +13,7 @@ Implementation
 ```
 dotnet add package RabbitMQMiddleware.Implementation
 ```
-note: in clean architecture add "Interface" library to "Application" layer/project and add "Implementation" library to Infrastructure layer/project
+note: in clean architecture add "Interface" library to "Application" layer/project and add "Implementation" library to "Infrastructure" layer/project
 
 # Register Services
 Add the following in Program.cs
