@@ -12,7 +12,7 @@
     <Authors>Afrino</Authors>
     <Copyright>© Afrino. All rights reserved.</Copyright>
     <Title>RabbitMQ Middleware Interface</Title>
-    <PackageTags>rabbitmq consumer producer</PackageTags>
+    <PackageTags>rabbitmq consumer producer messagequeue</PackageTags>
     <Description>RabbitMQ middleware for .net suitable for clean architecture</Description>
     <RepositoryUrl>https://github.com/Afrino-co/RabbitMQMiddleware</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Afrino-co/RabbitMQMiddleware</PackageProjectUrl>
