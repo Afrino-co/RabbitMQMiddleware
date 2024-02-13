@@ -105,7 +105,7 @@ public class ProducerService<T> : IProducerService<T>, IDisposable
             model.QueueDeclare(queueName, durable: true, exclusive: false, autoDelete: false);
             model.ExchangeDeclare(exchangeName, exchangeType, durable: true, autoDelete: false);
             model.QueueBind(queueName, exchangeName, routingKey);
-            var props = _model.CreateBasicProperties();
+            var props = model.CreateBasicProperties();
             props.Persistent = true; // or props.DeliveryMode = 2;
             model.BasicPublish(
                 exchange: exchangeName,
@@ -116,6 +116,8 @@ public class ProducerService<T> : IProducerService<T>, IDisposable
 
             model.Close();
             channel.Close();
+            model.Dispose();
+            channel.Dispose();            
         }
         
     }
