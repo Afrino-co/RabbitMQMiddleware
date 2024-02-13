@@ -113,6 +113,9 @@ public class ProducerService<T> : IProducerService<T>, IDisposable
                 basicProperties: props,
                 body: Encoding.UTF8.GetBytes(message),
                 mandatory: true);
+
+            model.Close();
+            channel.Close();
         }
         
     }
